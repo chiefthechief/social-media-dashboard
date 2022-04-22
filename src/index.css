@@ -1,0 +1,305 @@
+/*
+- Very Dark Blue (BG): hsl(230, 17%, 14%)
+- Very Dark Blue (Top BG Pattern): hsl(232, 19%, 15%)
+- Dark Desaturated Blue (Card BG): hsl(228, 28%, 20%)
+- Desaturated Blue (Text): hsl(228, 34%, 66%)
+- White (Text): hsl(0, 0%, 100%)
+
+#### Light Theme
+
+- White (BG): hsl(0, 0%, 100%)
+- Very Pale Blue (Top BG Pattern): hsl(225, 100%, 98%)
+- Light Grayish Blue (Card BG): hsl(227, 47%, 96%)
+- Dark Grayish Blue (Text): hsl(228, 12%, 44%)
+- Very Dark Blue (Text): hsl(230, 17%, 14%)
+
+## Typography
+
+### Body Copy
+
+- Font size (Overview Card Headings): 14px
+
+### Font
+
+- Family: [Inter](https://fonts.google.com/specimen/Inter)
+- Weights: 400, 700
+*/
+:root{
+   --light-BG-color: hsl(0, 0%, 100%);
+   --light-Top-BG-pattern: hsl(225, 100%, 98%);
+   --margin: 3%;
+   --light-text-color: hsl(228, 12%, 44%);
+   --light-card-BG: hsl(227, 47%, 96%);
+   --light-bold: hsl(0, 0%, 0%);
+   --light-section-card-hover: hsl(225, 5%, 85%);
+   --dark-BG-color: hsl(230, 17%, 14%);
+   --dark-Top-BG-pattern: hsl(232, 19%, 15%);
+   --dark-margin: 3%;
+   --dark-text-color: hsl(228, 34%, 66%);
+   --dark-card-BG: hsl(228, 28%, 20%);
+   --dark-bold: hsl(0, 0%, 100%);
+   --dark-section-card-hover: hsl(228, 41%, 29%);
+}
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   transition: all .15s ease-in-out;
+}
+body{
+   font-family: 'Inter', sans-serif;
+}
+#light{
+   background: var(--light-BG-color);
+}
+#dark{
+   background: var(--dark-BG-color);
+}
+section.container{
+   margin-bottom: -3.5em;
+   border-bottom-left-radius: 1em;
+   border-bottom-right-radius: 1em;
+}
+#light section.container{
+   background: var(--light-Top-BG-pattern);
+}
+#dark section.container{
+   background: var(--dark-Top-BG-pattern);
+}
+div.container-top{
+   padding-top: 1.5em;
+   padding-bottom: .8em;
+   border-bottom: 3px solid;
+}
+#light div.container-top{
+   border-bottom-color: var(--light-text-color);
+}
+#dark div.container-top{
+   border-bottom-color: var(--dark-text-color);
+}
+div.container-down{
+   padding-top: .7em;
+   padding-bottom: 5em;
+   display: flex;
+   align-items: center;
+   gap: .25em;
+}
+h1{
+   margin-bottom: .2em;
+}
+#dark h1{
+   color: var(--dark-bold)
+}
+#dark .color{
+   color: hsl(0, 0%, 63%);
+}
+div.container-down div.button{
+   display: flex;
+   align-items: center;
+}
+input[type='checkbox']{
+   width: 0;
+   height: 0;
+   visibility: hidden;
+}
+label{
+   display: block;
+   width: 50px;
+   height: 30px;
+   background: var(--light-text-color);
+   border-radius: 5.2em;
+   position: relative;
+   cursor: pointer;
+   transition: 0.5s;
+}
+label::after{
+   content: "";
+   width: 20px;
+   height: 20px;
+   background-color: #e8f5f7;
+   position: absolute;
+   border-radius: 70px;
+   top: .3em;
+   left: .25em;
+   transition: 0.5s;
+}
+input:checked + label::after{
+   left: calc(100% - 4px);
+   transform: translateX(-100%);
+}
+input:checked + label{
+   background: hsl(208, 78%, 60%);
+}
+#light section{
+   padding-inline: var(--margin);
+}
+#dark section{
+   padding-inline: var(--margin);
+}
+label.label{
+   margin-inline: var(--margin);
+   margin-top: -2.6em;
+   margin-bottom: 2em;
+}
+h2{
+   margin-left: 5%;
+   margin-top: 1.2em;
+   margin-bottom: .65em;
+}
+#light h2{
+   color: var(--light-text-color);
+}
+#dark h2{
+   color: var(--dark-bold);
+}
+section.card{
+   width: 90%;
+   max-width: 320px;
+   margin: 0 auto;
+   margin-bottom: 1em;
+   border-radius: .3em;
+   padding: 1.9em 0 1.5em 0;
+   text-align: center;
+   border-top: 4px solid;
+}
+#light section.card{
+   background: var(--light-card-BG);
+   color: var(--light-text-color)
+}
+#dark section.card{
+   background: var(--dark-card-BG);
+   color: var(--dark-text-color)
+}
+section.card:first-child{
+   border-top-color: hsl(220, 46%, 48%);
+}
+section.card:nth-child(2){
+   border-top-color: hsl(197, 100%, 47%);
+}
+section.card:nth-child(3){
+   border-top-color: linear-gradient(90deg, rgba(255,199,56,1) 0%, rgba(251,55,88,1) 100%);
+}
+section.card:nth-child(4){
+   border-top-color: hsl(2, 64%, 47%);
+}
+section.card p:first-child{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: .5em;
+}
+section.card.lower-card{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border-top: 0;
+}
+#light section.card.lower-card{
+   padding-inline: 1.5em;
+}
+#dark section.card.lower-card{
+   padding-inline: 1.5em;
+}
+section.card.lower-card div{
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+section.card.lower-card div.rightdiv{
+   gap: 1.8em;
+}
+section.card.lower-card div.rightdiv img.resize{
+   width: 30px;
+}
+section.card.lower-card:nth-child(3) div.rightdiv img.resize,
+section.card.lower-card:nth-child(4) div.rightdiv img.resize,
+section.card.lower-card:nth-child(5) div.rightdiv img.resize,
+section.card.lower-card:nth-child(6) div.rightdiv img.resize{
+   position: relative;
+   left: 1.25em;
+}
+section.card.lower-card div.rightdiv p{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: .3em;
+}
+section.card.lower-card div.rightdiv p>img{
+   transform: scale(1.4);
+}
+section.card p{
+   padding-top: .3em;
+}
+section.card p:first-child img{
+   margin-right: .3em;
+}
+section.card p.bold{
+   font-size: 2.5rem;
+   font-weight: 700;
+}
+#light section.card p.bold{
+   color: var(--light-bold)
+}
+#dark section.card p.bold{
+   color: var(--dark-bold)
+}
+section.card p.followers{
+   font-size: 1rem;
+   letter-spacing: .15em;
+   margin: -.2em 0 .8em 0;
+}
+section.card p:last-child{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: .2em;
+}
+section.card p:last-child img{
+   transform: scale(1.2);
+}
+@media all and (min-width: 600px){
+   section.container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1em 5% 10em 5%;
+      margin-bottom: -8em;
+   }
+   label.label{
+      position: absolute;
+      right: 2%;
+      top: 16.5%;
+   }
+   div.container-top{
+      border-bottom: initial;
+   }
+   div.container-down{
+      padding: initial;
+   }
+}
+@media all and (min-width: 750px){
+   .sections{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-inline: 5%;
+   }
+   section.card{
+      margin-bottom: 1.5em;
+   }
+   #light section.card:hover{
+      background: var(--light-section-card-hover);
+   }
+   #dark section.card:hover{
+      background: var(--dark-section-card-hover);
+   }
+   label.label{
+      position: absolute;
+      right: 2%;
+      top: 16.5%;
+   }
+}
+@media all and (min-width: 950px){
+   .sections{
+      grid-template-columns: repeat(4, 1fr);
+   }
+}
